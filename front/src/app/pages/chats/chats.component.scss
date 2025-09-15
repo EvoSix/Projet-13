@@ -1,0 +1,22 @@
+.page { display: grid; gap: 16px; padding: 16px; }
+
+.header { display: flex; align-items: center; justify-content: space-between; }
+
+.list-wrapper { min-height: 200px; max-height: calc(100vh - 280px); overflow: auto; }
+
+.messages { padding-right: 8px; }
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: start;
+
+  .field { width: 100%; }
+  button { display: inline-flex; align-items: center; gap: 8px; height: fit-content; padding: 10px 16px; }
+}
+
+.center, .empty {
+  display: grid; place-items: center; min-height: 160px; gap: 8px; opacity: .8;
+}
+.empty mat-icon { font-size: 40px; width: 40px; height: 40px; }

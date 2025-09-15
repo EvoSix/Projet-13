@@ -1,0 +1,38 @@
+<app-header class="desktop-only"></app-header>
+<main class="login-container">
+  <nav>
+    <a href="/">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+  </nav>
+
+  <div class="form-wrapper">
+    <img src="assets/logo_p6.png" alt="Logo" class="mobile-only logo" />
+
+    <h2>Se connecter</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="full-width">
+      <div class="field-group">
+        <label for="identifier">Email ou nom d'utilisateur</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput formControlName="identifier" />
+          <mat-error *ngIf="submitted && f['identifier'].errors?.['required']">
+            Ce champ est requis
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field-group" for="password">
+        <label>Mot de passe</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput type="password" formControlName="password" />
+          <mat-error *ngIf="submitted && f['password'].errors?.['required']">
+            Le mot de passe est requis
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Connexion..." : "Se connecter" }}
+      </button>
+    </form>
+  </div>
+</main>

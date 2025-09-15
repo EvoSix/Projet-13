@@ -1,0 +1,32 @@
+<header class="main-header">
+  <mat-toolbar class="toolbar">
+    <a routerLink="/" class="logo">
+    <img src="/assets/logo_p6.png" alt="Logo" height="40px" />
+    </a>
+    <div class="spacer"></div>
+
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <nav class="desktop-only">
+        <button class="nav-logout" (click)="logout()">Déconnexion</button>
+       <a routerLink="/chats">chat</a>
+      <a routerLink="/chatsWS">Chat with WebSocket</a>
+      </nav>
+    </ng-container>
+
+    <button mat-icon-button class="mobile-only" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="drawer-overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>
+  <div class="mobile-drawer" [class.open]="menuOpen">
+    <button mat-icon-button class="close-btn" (click)="toggleMenu()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <nav>
+      <a class="nav-logout" (click)="logout()">Déconnexion</a>
+      <a routerLink="/chats">chat</a>
+      <a routerLink="/chatsWS">Chat with WebSocket</a>
+   
+    </nav>
+  </div>
+</header>

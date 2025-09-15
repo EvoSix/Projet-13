@@ -1,0 +1,21 @@
+.page {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+.list-wrapper { min-height: 40vh; }
+.messages { max-height: 55vh; overflow: auto; }
+.composer {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+}
+.field { grid-column: 1 / span 1; }
+button[type="submit"] { grid-column: 2 / span 1; align-self: end; }
+.center { display: grid; place-items: center; height: 40vh; }
+.empty {
+  opacity: .7;
+  display: grid; place-items: center; gap: 8px; height: 40vh;
+}
+.status { display: inline-flex; gap: 8px; align-items: center; opacity: .8; }

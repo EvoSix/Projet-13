@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  --mdc-outlined-text-field-container-shape: 8px;
+  --mdc-outlined-text-field-container-color: #ffffff;
+  --mdc-outlined-text-field-outline-color: #000000;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+main {
+  margin:20px;
+
+  @media (min-width: 1568px) {
+margin-left:128px;
+margin-right: 128px;
+  }
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+}
+/* Style général pour tous les inputs Angular Material */
+mat-form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .field-group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    // Label aligné à gauche
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-form-field-flex {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0 0.75rem;
+  }
+
+  .mat-form-field-label {
+    font-weight: 500;
+    color: black;
+    top: 0;
+  }
+
+  input.mat-input-element {
+    padding: 0.75rem 0;
+  }
+}
+
+/* Style général pour les boutons submit */
+button {
+  background-color: #7763c5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #5c49a5; /* léger assombrissement */
+  }
+
+  &:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 100%;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.article-card {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}

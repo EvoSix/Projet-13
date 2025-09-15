@@ -1,0 +1,49 @@
+<app-header class="desktop-only"></app-header>
+<main class="login-container">
+  <nav>
+    <a href="/">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+  </nav>
+
+  <div class="form-wrapper">
+    <img src="assets/logo_p6.png" alt="Logo" class="mobile-only logo" />
+    <h2>Inscription</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="full-width">
+      <div class="field-group">
+        <label for="firstname">prenom</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput formControlName="firstname" />
+        </mat-form-field>
+      </div>
+         <div class="field-group">
+        <label for="lastname">Nom</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput formControlName="lastname" />
+        </mat-form-field>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input type="email" matInput formControlName="email"
+        /></mat-form-field>
+      </div>
+        <div class="field-group">
+        <label for="adresse">adresse</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input  matInput formControlName="adresse"
+        /></mat-form-field>
+      </div>
+
+      <div class="field-group">
+        <label for="password">Mot de passe</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <input type="password" matInput formControlName="password"
+        /></mat-form-field>
+      </div>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<section class="page">
+
+  <div class="status" *ngIf="connected()">
+    <mat-icon color="primary">wifi</mat-icon>
+    <span>Connecté au temps réel</span>
+  </div>
+
+  <div class="list-wrapper" *ngIf="!loading(); else loadingTpl">
+
+  <mat-list *ngIf="items().length; else emptyTpl">
+    <mat-list-item *ngFor="let m of items(); trackBy: trackById">
+      <div matListItemTitle>{{ m.content }}</div>
+      <div matListItemLine>
+        <span *ngIf="m.authorFirstname || m.authorLastname">
+          — {{ m.authorFirstname }} {{ m.authorLastname }}
+        </span>
+        <span *ngIf="m.created_at">&nbsp;•&nbsp;{{ m.created_at | date:'medium' }}</span>
+      </div>
+    </mat-list-item>
+    <div #endOfList></div>
+  </mat-list>
+</div>
+
+
+  <form class="composer" [formGroup]="form" (ngSubmit)="createMessage()">
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>Votre message</mat-label>
+      <textarea
+        matInput
+        [formControl]="contentCtrl"
+        rows="3"
+        placeholder="Écrire un message…"></textarea>
+      <mat-hint >{{ contentCtrl.value?.length || 0 }}/2000</mat-hint>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="creating() || contentCtrl.invalid">
+      <mat-icon>send</mat-icon>
+      <span>Envoyer</span>
+      <mat-progress-spinner *ngIf="creating()" diameter="16" mode="indeterminate"></mat-progress-spinner>
+    </button>
+  </form>
+
+  <ng-template #loadingTpl>
+    <div class="center">
+      <mat-progress-spinner diameter="40" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>
+
+  <ng-template #emptyTpl>
+    <div class="empty">
+      <mat-icon>chat_bubble_outline</mat-icon>
+      <p>Aucun message pour le moment.</p>
+    </div>
+  </ng-template>
+</section>
